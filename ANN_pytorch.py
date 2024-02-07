@@ -134,11 +134,11 @@ def creating_nns():
   model_th = nn.Sequential(
       nn.Linear(12, 128),
       nn.Tanh(),
-      nn.Linear(128, 64),
+      nn.Linear(128, 128),
       nn.Tanh(),
-      nn.Linear(64, 64),
+      nn.Linear(128, 256),
       nn.Tanh(),
-      nn.Linear(64, 12),
+      nn.Linear(256, 12),
       nn.Tanh(),
       nn.Linear(12, 1),
       nn.Sigmoid()
@@ -249,4 +249,5 @@ _, ac_trains_rlu, ac_tests_rlu = full_gd(m_rlu, criterion, optimizer, X_train, y
 
 # illustrating the results
 plot_accuracy(num_epoch, ac_trains_rlu, ac_tests_rlu, 'Accuracy as a Function of the Epochs')
+
 
