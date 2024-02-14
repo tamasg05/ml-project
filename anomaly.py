@@ -16,10 +16,9 @@ def reading_ds(file='worldwide_covid_data_2023_09.csv'):
     df_covid.isna().sum()
 
     df_covid = df_covid.dropna()
-    print(df_covid.isna().sum())
+    #print(df_covid.isna().sum())
 
     df_covid.reset_index(inplace = True, drop = True)
-    df_covid.head()
 
     return df_covid
 
@@ -123,7 +122,7 @@ def main_recommender_engine():
 
         get_similar_countries(cos_m, line, 20) 
 
-    print("Exit....")   
+    print("Exiting....")   
 
 
 if __name__ == '__main__':
