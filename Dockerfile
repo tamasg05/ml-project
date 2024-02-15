@@ -40,4 +40,4 @@ COPY . .
 # EXPOSE 8000
 
 # Run the application.
-CMD python anomaly.py
+CMD python server_anomaly.py
