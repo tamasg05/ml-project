@@ -53,7 +53,7 @@ def get_similar_countries(cosine_sim_df, country_name, n_firsts=10):
 
   # first n elements
   print(f'\n###### {country_name}, similar countries ####: \n {li[:n_firsts]}')
-
+  return li[:n_firsts].to_json()
 
 def plot_outlier_one_feature(df):
     sns.boxplot(df, x = 'Deaths/ 1M pop', color=".8", linecolor="#137", linewidth=.75 ).set(title="Covid Data")
@@ -105,6 +105,21 @@ def main_outlier_detection():
     # listing by tests /1M population
     anomalous_countries = anomalous_countries.sort_values('Tests/ 1M pop', ascending=False)
     print(f'######### Anomalous contries listed by tests per 1M population: \n{anomalous_countries.to_string()} \n\n') # to_string() for getting the whole table printed
+
+def get_countries(name):
+    df, country_list = df_for_recommendation()
+    cos_m = my_cosine_similarity(df, country_list)
+
+    non_occurence = country_list.isin([name]).value_counts()[False]
+    length = country_list.shape
+    if non_occurence == length:
+        result = 'Country not in the list.'
+        print(result)
+        return result
+    
+    result = get_similar_countries(cos_m, name, 20)
+    return result
+
 
 def main_recommender_engine():
     df, country_list = df_for_recommendation()
