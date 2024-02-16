@@ -30,5 +30,5 @@ if __name__ == '__main__':
     # app.run()
 
     # production web-server
-    http_server = WSGIServer(('127.0.0.1', 5000), app)
+    http_server = WSGIServer(('', 5000), app)
     http_server.serve_forever()

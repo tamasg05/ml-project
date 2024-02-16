@@ -1,5 +1,6 @@
-ARG PYTHON_VERSION=3.12.2
-FROM python:${PYTHON_VERSION}-slim as base
+#ARG PYTHON_VERSION=3.12.2
+#FROM python:${PYTHON_VERSION}-slim as base
+FROM python:alpine
 
 # Prevents Python from writing pyc files.
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -37,7 +38,7 @@ USER appuser
 COPY . .
 
 # Expose the port that the application listens on.
-# EXPOSE 8000
+EXPOSE 5000
 
 # Run the application.
 CMD python server_anomaly.py
