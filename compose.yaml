@@ -3,11 +3,11 @@ services:
     build:
       context: ./app_streamlit
     depends_on:
-      - project
+      - project-cli
     ports:
-      - 8080:8080
+      - 8501:8501
 
-  project:
+  project-cli:
     build:
       context: ./app
     ports:

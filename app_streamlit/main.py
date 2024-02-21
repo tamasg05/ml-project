@@ -8,7 +8,7 @@ st.text('COVID Similarities Among Different Contries (based on data from Sept. 2
 text_variable = st.text_input("Enter the country you look similar countries for:", value="e.g. Taiwan")
 
 # Define the URL of the web service
-api_url = "http://localhost:5000/country/" + text_variable
+api_url = "http://project-cli:5000/country/" + text_variable
 error_response = 'Country not in the list.'
 
 # Button to trigger the request
