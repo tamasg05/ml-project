@@ -8,7 +8,8 @@ st.text('COVID Similarities Among Different Contries (based on data from Sept. 2
 text_variable = st.text_input("Enter the country you look similar countries for:", value="e.g. Taiwan")
 
 # Define the URL of the web service
-api_url = "http://project-cli:5000/country/" + text_variable
+# It is the URL in the google cloud now fro the streamlit deployment
+api_url = "https://my-covid-similarity-service-g6ktaizqja-lz.a.run.app/country/" + text_variable
 error_response = 'Country not in the list.'
 
 # Button to trigger the request
